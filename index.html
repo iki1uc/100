@@ -5,12 +5,50 @@
 <title>100 – Vollsystemkern · iki1uc</title>
 
 <style>
-body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
-h1 { color:#0f0; letter-spacing:4px; margin-bottom:30px; }
-.block { background:#111; border:1px solid #333; padding:25px; margin-bottom:30px; border-radius:8px; }
-.title { font-size:22px; color:#6cf; margin-bottom:10px; }
-a { color:#6cf; text-decoration:none; font-weight:bold; }
-pre { background:#000; border-left:3px solid #6cf; padding:15px; margin-top:10px; white-space:pre-wrap; }
+body {
+    background:#000;
+    color:#0f0;
+    font-family:monospace;
+    padding:40px;
+}
+h1 {
+    color:#0f0;
+    letter-spacing:4px;
+    margin-bottom:30px;
+}
+.block {
+    background:#111;
+    border:1px solid #333;
+    padding:25px;
+    margin-bottom:30px;
+    border-radius:8px;
+}
+.title {
+    font-size:22px;
+    color:#6cf;
+    margin-bottom:10px;
+}
+a {
+    color:#6cf;
+    text-decoration:none;
+    font-weight:bold;
+    display:block;
+    margin:4px 0;
+}
+pre {
+    background:#000;
+    border-left:3px solid #6cf;
+    padding:15px;
+    margin-top:10px;
+    white-space:pre-wrap;
+}
+#sysStatus {
+    background:#000;
+    border-left:3px solid #f0f;
+    padding:15px;
+    margin-top:10px;
+    white-space:pre-wrap;
+}
 </style>
 </head>
 
@@ -18,41 +56,72 @@ pre { background:#000; border-left:3px solid #6cf; padding:15px; margin-top:10px
 
 <h1>100 – Vollsystemkern · iki1uc</h1>
 
+<!-- SYSTEM AKTIVIERUNG -->
 <div class="block">
     <div class="title">100%-System</div>
-    <p>Dieses Modul aktiviert das gesamte iki1uc-System vollständig.</p>
+    <p>Dieses Modul aktiviert das gesamte iki1uc‑System vollständig.</p>
+    <pre>
+Status: AKTIV
+Modus: Vollkern
+Tiefe: 100%
+    </pre>
 </div>
 
+<!-- IDENTITÄT -->
 <div class="block">
     <div class="title">Identität</div>
     <p><a href="ID.html">→ 100‑Identität öffnen</a></p>
 </div>
 
+<!-- SYSTEMDATEN -->
 <div class="block">
     <div class="title">100%-Daten</div>
     <pre>
-Aktivierung = 100%
-Achsenmatrix = 6×6
-Dimensionen = 6D
-Felder pro Achse = 64
-Rotation = 360°
-Systemausnutzung = 100%
+Aktivierung:        100%
+Achsenmatrix:       6×6
+Dimensionen:        6D
+Felder pro Achse:   64
+Rotation:           360°
+Systemausnutzung:   100%
     </pre>
 </div>
 
+<!-- MODULE -->
 <div class="block">
     <div class="title">Module</div>
-    <a href="../AXI/index.html">AXI</a>
-    <a href="../6d/index.html">6d</a>
-    <a href="../360/index.html">360</a>
-    <a href="../ANKER/index.html">ANKER</a>
-    <a href="../API/index.html">API</a>
-    <a href="../GEO/index.html">GEO</a>
-    <a href="../FREQ/index.html">FREQ</a>
-    <a href="../SETter/index.html">SETter</a>
-    <a href="../ALLin/index.html">ALLin</a>
-    <a href="../ALLout/index.html">ALLout</a>
+    <a href="../AXI/index.html">AXI – Achsen</a>
+    <a href="../6d/index.html">6D – Dimensionen</a>
+    <a href="../360/index.html">360 – Rotation</a>
+    <a href="../ANKER/index.html">ANKER – Stabilisierung</a>
+    <a href="../API/index.html">API – Datenkern</a>
+    <a href="../GEO/index.html">GEO – Geometrie</a>
+    <a href="../FREQ/index.html">FREQ – Frequenzen</a>
+    <a href="../SETter/index.html">SETter – Set‑System</a>
+    <a href="../ALLin/index.html">ALLin – Input</a>
+    <a href="../ALLout/index.html">ALLout – Output</a>
 </div>
+
+<!-- SYSTEM STATUS -->
+<div class="block">
+    <div class="title">System‑Status</div>
+    <pre id="sysStatus">Lade…</pre>
+</div>
+
+<script type="module">
+import DIM from "./dimension-bedeutung-4.csv" assert { type:"json" };
+
+function updateStatus() {
+    const s = document.getElementById("sysStatus");
+
+    s.innerHTML =
+        "Systemkern: OK\n" +
+        "Dimensionen geladen: " + (DIM ? "OK" : "NEIN") + "\n" +
+        "Modul‑Linking: AKTIV\n" +
+        "Status: 100%\n";
+}
+
+setInterval(updateStatus, 500);
+</script>
 
 </body>
 </html>
