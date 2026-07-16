@@ -59,31 +59,27 @@ pre {
 <!-- SYSTEM AKTIVIERUNG -->
 <div class="block">
     <div class="title">100%-System</div>
-    <p>Dieses Modul aktiviert das gesamte iki1uc‑System vollständig.</p>
     <pre>
-Status: AKTIV
-Modus: Vollkern
-Tiefe: 100%
+NAME:        100
+ROOT:        iki1uc
+SYSTEM:      6E
+MODUL:       100
+DIM:         100%
+ROLLE:       Vollsystem / Komplettkern / 100%-Ebene
+FUNKTION:    Aktiviert alle Module, Achsen, Dimensionen und Router vollständig
+POSITION:    100%-Ebene
+DNA:         Α64
+ROUTER:      6D-Router-Matrix
+TMP-LÄUFER:  SYQ
+STATUS:      STABIL
+READY:       100%
     </pre>
 </div>
 
 <!-- IDENTITÄT -->
 <div class="block">
     <div class="title">Identität</div>
-    <p><a href="ID.html">→ 100‑Identität öffnen</a></p>
-</div>
-
-<!-- SYSTEMDATEN -->
-<div class="block">
-    <div class="title">100%-Daten</div>
-    <pre>
-Aktivierung:        100%
-Achsenmatrix:       6×6
-Dimensionen:        6D
-Felder pro Achse:   64
-Rotation:           360°
-Systemausnutzung:   100%
-    </pre>
+    <a href="ID.html">→ 100‑Identität öffnen</a>
 </div>
 
 <!-- MODULE -->
@@ -109,6 +105,8 @@ Systemausnutzung:   100%
 
 <script type="module">
 import DIM from "./dimension-bedeutung-4.csv" assert { type:"json" };
+import NC from "../ART.link/NC.json" assert { type:"json" };
+import ORBIT from "../ART.link/orbit.json" assert { type:"json" };
 
 function updateStatus() {
     const s = document.getElementById("sysStatus");
@@ -116,7 +114,11 @@ function updateStatus() {
     s.innerHTML =
         "Systemkern: OK\n" +
         "Dimensionen geladen: " + (DIM ? "OK" : "NEIN") + "\n" +
-        "Modul‑Linking: AKTIV\n" +
+        "NC² Sync: " + (NC.sync.axis ? "OK" : "NEIN") + "\n" +
+        "Orbit‑Heatmap: " + (ORBIT.paths.length > 0 ? "OK" : "NEIN") + "\n" +
+        "Router: 6D‑Matrix aktiv\n" +
+        "DNA: Α64 aktiv\n" +
+        "TMP‑Läufer: SYQ\n" +
         "Status: 100%\n";
 }
 
