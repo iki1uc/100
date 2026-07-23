@@ -1,0 +1,7 @@
+export const FARB = {
+    ROT:   { axis: "KERN",      level: "100%",  mode: "ENERGIE" },
+    GELB:  { axis: "100",       level: "100",   mode: "BILDUNG" },
+    GRUN:  { axis: "360",       level: "360°",  mode: "RAUM" },
+    BLAU:  { axis: "%/°",       level: "NATUR", mode: "ROTATION" }
+};
+1
