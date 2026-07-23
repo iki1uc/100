@@ -1,0 +1,12 @@
+export function respo360(){
+    const out = [];
+    for(let i=0;i<360;i++){
+        out.push({
+            degree: i,
+            axis: (i % 12),
+            mode: "CIRCLE",
+            type: "ROTATION"
+        });
+    }
+    return out;
+}
