@@ -1,0 +1,5 @@
+export const NATUR_MODE = {
+    percent: (x) => x + "%",
+    degree:  (x) => x + "°",
+    axis:    (x) => x % 12
+};
